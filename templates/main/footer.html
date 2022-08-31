@@ -1,0 +1,116 @@
+{% comment %} {% comment %} {% load static %}
+<section class="s-extra">
+    <div class="row">
+        <div class="col-seven md-six tab-full popular">
+            <h3>Popular Posts</h3>
+            <div class="block-1-2 block-m-full popular__posts">
+                {% comment %} {% for post in pop_posts %}
+                    <article class="col-block popular__post">
+                        <a href="{{ post.get_absolute_url }}" class="popular__thumb">
+                            <img src="{{ post.thumbnail.url }}" alt="No">
+                        </a>
+                        <h5>{{ post.title }}.</h5>
+                        <section class="popular__meta">
+                            <span class="popular__author"><span>By</span> <a
+                                    href="{{ post.get_absolute_url }}">{{ post.author.full_name }}</a></span>
+                            <span class="popular__date"><span>on</span> <time>{{ post.created_at.date }}</time></span>
+                        </section>
+                    </article>
+                {% endfor %} {% endcommnt %}
+
+            </div>
+        </div>
+        <div class="col-four md-six tab-full end">
+            <div class="row">
+                <div class="col-six md-six mob-full categories">
+                    <h3>Categories</h3>
+                    <ul class="linklist">
+                        {% comment %} {% for nav_cat in nav_cats %}
+                            <li><a href="{% url 'category' nav_cat.category nav_cat.id %}">{{ nav_cat.category }}</a>
+                            </li>
+
+                        {% endfor %} {% ndcomment %}
+
+
+                    </ul>
+                </div>
+                <div class="col-six md-six mob-full sitelinks">
+                    <h3>Site Links</h3>
+                    {% comment %} <ul class="linklist">
+                        <li><a href="{% url 'home' %}">Home</a></li>
+                        <li><a href="{% url 'home' %}">Blog</a></li>
+                        <li><a href="{% url 'about-page' %}">About</a></li>
+                        <li><a href="{% url 'contact-page' %}">Contact</a></li>
+                    </ul> {% endcomment %
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer class="s-footer">
+    <div class="s-footer__main">
+        <div class="row">
+            <div class="col-six tab-full s-footer__about">
+                <h4>About me</h4>
+                <p>Hello. I am Abdusamad Malikov, A Full Stack Python Developer.
+                </p>
+            </div>
+            <div class="col-six tab-full s-footer__subscribe">
+                {% comment %} <h4>Our Newsletter</h4>
+                {% if messages %}
+                    {% for msg in messages %}
+                        <p>{{ msg }}</p>
+                    {% endfor %}
+                {% else %}
+                    <p>By subscribing to our newsletter you receive notification about weekly posts and special offers. Don't lose your chance <b>Subscribe right now</b></p>
+                {% endif %} {% endcomment %
+
+
+                <div class="subscribe-form">
+                    <form id="mc-form" action="#" class="group" method="post">
+                        {% comment %} {% csrf_token %}
+                        {{ email_form }} { endcomment %}
+                        <input type="submit" value="Subscribe">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="s-footer__bottom">
+        <div class="row">
+            <div class="col-six">
+                <ul class="footer-social">
+                    <li>
+                        <a href="https://www.linkedin.com/in/abdusamad-malikov/"><i class="fab fa-linkedin"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com/abdusamad.malikov.18/"><i class="fab fa-facebook"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/sevbo2003"><i class="fab fa-github"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/abdusamad_malikov/"><i class="fab fa-instagram"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.youtube.com/channel/UCmA8lwHZHfpbSkbv65awfdQ"><i class="fab fa-youtube"></i></a>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="col-six">
+                <div class="s-footer__copyright">
+                            <span>
+                                Copyright &copy; All rights reserved | This template is made with <i
+                                    class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com"
+                                                                                      target="_blank">Colorlib</a>
+                                Coded by <i class="fa fa-code"></i> by <a href="t.me/ok_no_thanks">Abdusamad</a>
+                            </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="go-top">
+        <a class="smoothscroll" title="Back to Top" href="#top"></a>
+    </div>
+</footer> {% endcomment %}

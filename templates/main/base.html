@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Dasturchi.me</title>
+        <meta name="description" content="Blog">
+        <meta name="author" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        {% comment %} {% block link %} {% endcomment %}
+        <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+        {% comment %} {% endblock %} {% endcomment %}
+        <link rel="shortcut icon" href="https://thumbs.dreamstime.com/b/ma-m-alphabet-letter-logo-icon-combination-grunge-handwritten-vintage-design-black-white-color-business-company-193636080.jpg" type="image/x-icon">
+    </head>
+    <body id="top">
+        {% include 'main/header.html' %}
+        {% block content %}
+        {% endblock %}
+
+
+        {% include 'main/footer.html' %}
+        <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+        <script src="{% static 'js/plugins.js' %}"></script>
+        <script src="{% static 'js/main.js' %}"></script>
+    </body>
+</html>    
