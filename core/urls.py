@@ -19,11 +19,12 @@ from django.urls import path, include
 from django.conf.urls.static import static
 
 from django.conf import settings
+
+from blog import views
 urlpatterns = [
     path('creator/', admin.site.urls),
-    path('', include('home.urls')),
     path('article/', include('blog.urls')),
-    
+    path('', view=views.hello, name='home')      
 ]
 
 

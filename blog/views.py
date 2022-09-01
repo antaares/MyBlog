@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 
 from django.views.generic import ListView
@@ -8,9 +9,14 @@ from .models import Article
 
 
 def index(request):
-    return render(request, 'index.html')
+    articles = Article.objects.all()
+    context = {
+        "articles": articles
+    }
+    return render(request, 'blog_temp/articles.html', context=context)
 
-
+def hello(request):
+    return HttpResponse("Hello guys. this blank page.")
 
 
 class ArticleListView(ListView):

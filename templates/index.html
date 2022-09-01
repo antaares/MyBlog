@@ -1,4 +1,4 @@
-{% extends 'main/base.html' %}
+{% comment %} {% extends 'main/base.html' %}
 {% load static %}
 {% block content %}
 
@@ -17,6 +17,67 @@
                     <img src="{% static 'images/logo2.svg' %}" alt="">
                 </p>
             </div>
-        </div> {% endcomment %}
+        </div> {% endcomment %
     </section>
-{% endblock %}
+{% endblock %} {% endcomment %}
+
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dasturchi.me | Maqolalar</title>
+</head>
+<body>
+    <header>
+        <div>
+            <h1>
+                Dasturchi.me maqolalar
+            </h1>
+        </div>
+    </header>
+    <section>
+        <div>
+            {% for article in articles %}
+            <article>
+                <div>
+                    <a href="{{ article.get_absolute_url }}" class="img-link">
+                        <img src="{{ article.image.url }}" width="600" height="400" alt="Lenovo">
+                    </a>
+                </div>
+                <div>
+                    <a href="{{ article.get_absolute_url }}" class="title-link"> MAvzu: {{ article.title }}</a>
+                </div>
+                <div class="summary">
+                    <p>
+                        {{ article.body|slice:200 }}
+                       {% comment %} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam itaque delectus rem, numquam fugit repellendus obcaecati totam sit veniam cupiditate.  {% endcomment %}
+                    </p>
+                </div>
+                <div>
+                    <p>Muallif: {{ article.author }} | sana: {{ article.create_date }}  {% if article.update_date %}| yangilandi: {{ article.update_date }} {% endif %}</p>
+                </div>
+            </article>
+            {% endfor %}
+
+            <!-- <ul>
+                <li>
+                    <a href="#">
+                        <img src="/v15.jpg" alt="Lenovo v15(G2 ITL" height="400" width="600">
+                    </a>
+                    <br>
+                    <a href="#"> <h3>Title</h3></a>
+                    <p>
+                        Summary: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit, minima numquam! Ipsa hic fugit culpa quae sint 
+                        quo blanditiis veniam ducimus neque similique ab accusamus corrupti, ad natus et placeat perspiciatis laboriosam. 
+                        Eveniet alias ratione amet est! Suscipit, culpa ipsum quam, sit, quisquam nisi eius molestiae optio hic adipisci totam?
+                    </p>
+                </li>
+            </ul> -->
+        </div>
+    </section>
+    
+</body>
+</html>
